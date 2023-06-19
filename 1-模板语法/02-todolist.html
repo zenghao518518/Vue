@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css">
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+    <style>
+    
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+       
+        <!-- 双向绑定了一个输入框的Value -->
+        <input type="text" v-model="mytext">
+        {{mytext}}
+        <button @click="handleAdd()">add</button>
+        <ul  v-show="datalist.length">
+            <li v-for="(data,index) in datalist">
+                {{data}}
+                <button @click="handleDel(index)">del</button>
+            </li>
+        </ul>
+
+        <div v-show="!datalist.length">代办事项空空如也</div>
+    </div>
+
+
+    <script>
+     var vm= new Vue({
+        el:"#box",
+        data() {
+            return {
+                mytext:"zenghao",
+                datalist:["1111111","22222222","33333333"]
+            }
+        },
+        methods: {
+            handleAdd(){
+                console.log("handleAdd");
+                this.datalist.push(this.mytext)
+                this.mytext=""
+             
+            },
+
+            handleDel(index){
+                console.log("del",index);
+                this.datalist.splice(index,1)
+                
+             
+            }
+        },
+     })
+     debugger;
+    </script>
+</body>
+</html>
