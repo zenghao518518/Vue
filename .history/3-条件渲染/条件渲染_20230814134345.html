@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css">
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+    <style>
+    
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        <!-- 1 -->
+        <!-- <div  v-if="isCreated">111111111</div>
+        <div  v-if="!isCreated">222222222</div> -->
+        <!-- 2 -->
+        <!-- <div  v-if="isCreated">111111111</div>
+        <div  v-else>222222222</div> -->
+        <h2>所有订单</h2>
+        <ul>    
+            <li v-for='item in datalist'>
+                {{item.title}}
+            </li>            
+        </ul>
+    </div>
+
+
+    <script>
+     var vm= new Vue({
+        el:"#box",
+        data() {
+            return {
+               isCreated:false,
+               datalist:[
+                {
+                    title:"11111",
+                    state:"未支付"
+                },
+                {
+                    title:"22222",
+                    state:"待发货"
+                },
+                {
+                    title:"33333",
+                    state:"已发货"
+                },
+                {
+                    title:"44444",
+                    state:"已完成"
+                },
+               ]
+                
+            }
+        },
+        methods: {
+         
+        },
+     })
+    
+    </script>
+</body>
+</html>

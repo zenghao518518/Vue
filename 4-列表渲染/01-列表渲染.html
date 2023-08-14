@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css" />
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="box">
+    
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: "#box",
+        data() {
+          return {
+            isCreated: true,
+            datalist: [
+              {
+                title: "11111",
+                state: 0,
+              },
+              {
+                  title: "22222",
+                  state: 1,
+              },
+              {
+                title: "33333",
+                state: 2,
+              },
+              {
+                title: "44444",
+                state: 3,
+              },
+            ],
+          };
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
