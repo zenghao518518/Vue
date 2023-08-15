@@ -14,10 +14,14 @@
   </head>
   <body>
     <div id="box">
-      <input type="text" @input="handleInput" v-model="mytext"/>
-      <ul>
-        <li v-for="data of datalist" :key="data">{{data}}</li>
-     </ul>
+       {{count}}
+       <button @click="handleAdd1($event,1,2,3)">add-1-函数表达式</button>
+       <button @click="handleAdd2">add-2-函数名</button>
+       <button @click="count++">add-3-函数名</button>
+
+       <input type="text" @input="handleInput"/>
+       <!-- 事件修饰符 -->
+
     </div>
 
     <script>
@@ -25,16 +29,22 @@
         el: "#box",
         data() {
           return {
-            mytext:"",
-            datalist: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"],
-            originList: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"]
+            count:1
+           
           };
         },
         methods: {
-            handleInput(){
-                console.log("input",this.mytext)
-                this.datalist= this.originList.filter(item=>item.includes(this.mytext))
-                console.log(datalist)
+            handleAdd1(evt,a,b,c){
+                console.log(evt.target,a,b,c)
+                this.count++
+            },
+            handleAdd2(evt){
+                this.count++
+                console.log(evt.target)
+            },
+            handleInput(evt){
+                this.count++
+                console.log("input",evt.target.value)
             }
         },
       });

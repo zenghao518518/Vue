@@ -33,7 +33,7 @@
         methods: {
             handleInput(){
                 console.log("input",this.mytext)
-                this.datalist= this.originList.filter(item=>item.includes(this.mytext))
+                var datalist= this.originList.filter(item=>item.includes(this.mytext))
                 console.log(datalist)
             }
         },
