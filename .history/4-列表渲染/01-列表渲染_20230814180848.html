@@ -16,12 +16,9 @@
     <div id="box">
       <ul>
         <!-- <li v-for="item in datalist"> -->
-        <li v-for="(item,index) of datalist">{{item}}--{{index}}</li>
-
-
-        <li v-for="(item,index) of obj">{{item}}--{{index}}</li>
-
-        <li v-for="item of 10">{{item}}</li>
+        <li v-for="(item,index) of datalist">
+            {{item}}--{{index}}
+        </li>
       </ul>
     </div>
 
@@ -31,12 +28,9 @@
         data() {
           return {
             isCreated: true,
-            datalist: ["1111", "2222", "3333"],
-            obj: {
-              name: "kerwin",
-              age: 100,
-              location: "dalian",
-            },
+            datalist: [
+              "1111","2222","3333"
+            ],
           };
         },
         methods: {},

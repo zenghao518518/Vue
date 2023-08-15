@@ -14,15 +14,10 @@
   </head>
   <body>
     <div id="box">
+      <input type="text" @input="handleInput" v-model="mytext"/>
       <ul>
-        <!-- <li v-for="item in datalist"> -->
-        <li v-for="(item,index) of datalist">{{item}}--{{index}}</li>
-
-
-        <li v-for="(item,index) of obj">{{item}}--{{index}}</li>
-
-        <li v-for="item of 10">{{item}}</li>
-      </ul>
+        <li v-for="data of datalist" :key="data">{{data}}</li>
+     </ul>
     </div>
 
     <script>
@@ -30,16 +25,18 @@
         el: "#box",
         data() {
           return {
-            isCreated: true,
-            datalist: ["1111", "2222", "3333"],
-            obj: {
-              name: "kerwin",
-              age: 100,
-              location: "dalian",
-            },
+            mytext:"",
+            datalist: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"],
+          
           };
         },
-        methods: {},
+        methods: {
+            handleInput(){
+                console.log("input",this.mytext)
+                var newlist= this.datalist.filter(item=>item.include(this.mytext))
+                console.log(newlist)
+            }
+        },
       });
     </script>
   </body>
