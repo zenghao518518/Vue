@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="..\Css\bootstrap.css" />
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <style>
+      li {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+      }
+      li img {
+        width: 100px;
+      }
+    </style>
+    <script src="../Scrip/Vue.next.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li v-for="item in datalist" :key="item.id">
+          <input type="checkbox" v-model="checkList" :value="item"/> 
+          <img :src="item.pic" />
+          <div>
+            <div>{{item.name}}</div>
+            <div style="color: red">￥{{item.price}}</div>
+          </div>
+          <div>
+            <button>-</button>
+            <span>{{item.number}}</span>
+            <button>+</button>
+          </div>
+          <div>
+            <button>删除</button>            
+          </div> 
+            
+        </li>
+      </ul>
+      <div>总金额：{{checkList}}</div>
+    </div>
+
+    <script>
+      var obj = {
+        data() {
+          return {
+            checkList:[],
+            datalist: [
+              {
+                name: "商品1",
+                price: 10,
+                number: 1,
+                id: 1,
+                limit: 5,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品2",
+                price: 20,
+                number: 2,
+                id: 2,
+                limit: 10,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品3",
+                price: 30,
+                number: 3,
+                id: 3,
+                limit: 15,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品4",
+                price: 10,
+                number: 100,
+                id: 4,
+                limit: 5,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品5",
+                price: 10,
+                number: 200,
+                id: 5,
+                limit: 5,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+            ],
+          };
+        },
+        methods: {},
+      };
+
+      Vue.createApp(obj).mount("#box");
+    </script>
+  </body>
+</html>

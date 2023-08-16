@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="..\Css\bootstrap.css" />
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <style>
+      li {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+      }
+      li img {
+        width: 100px;
+      }
+    </style>
+    <script src="../Scrip/Vue.next.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <input type="checkbox" v-model="isAll" @change="handleAllChecked"/> 全选/全不选
+      <ul>
+        <li v-for="(item,index) in datalist" :key="item.id">
+          <input type="checkbox" v-model="checkList" :value="item"/> 
+          <img :src="item.pic" />
+          <div>
+            <div>{{item.name}}</div>
+            <div style="color: red">￥{{item.price}}</div>
+          </div>
+          <div>
+            <button @click="item.number--" :disabled="item.number===1">-</button>
+            <span>{{item.number}}</span>
+            <button @click="item.number++" :disabled="item.number===item.limit">+</button>
+          </div>
+          <div>
+            <button @click="handleDeleteClick(index,item.id)">删除</button>            
+          </div> 
+            
+        </li>
+      </ul>
+      <button @click="checkList=datalist" >全选</button>
+      <button @click="checkList=[]" >全不选</button>
+      <div>总金额：{{sum()}}</div>
+      {{checkList}}
+    </div>
+
+    <script>
+      var obj = {
+        data() {
+          return {
+            isAll:false,
+            checkList:[],
+            datalist: [
+              {
+                name: "商品1",
+                price: 10,
+                number: 1,
+                id: 1,
+                limit: 5,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品2",
+                price: 20,
+                number: 2,
+                id: 2,
+                limit: 10,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品3",
+                price: 30,
+                number: 3,
+                id: 3,
+                limit: 15,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品4",
+                price: 10,
+                number: 100,
+                id: 4,
+                limit: 5,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+              {
+                name: "商品5",
+                price: 10,
+                number: 200,
+                id: 5,
+                limit: 5,
+                pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg",
+              },
+            ],
+          };
+        },
+        methods: {
+            sum(){
+                //累计计算
+                var total=0
+                 this.checkList.forEach(item => {
+                    total+=item.price*item.number
+                });
+                return total
+            },
+            handleDeleteClick(index,id){
+               console.log(index)
+               this.datalist.splice(index,1)
+               this.checkList =this.checkList.filter(item=>item.id!==id)
+            },
+            handleAllChecked(){
+                if (this.isAll) {
+                    checkList=datalist
+                } else {
+                    checkList=[]
+                }
+
+            }
+        },
+      };
+
+      var vm=Vue.createApp(obj).mount("#box");
+    </script>
+  </body>
+</html>
