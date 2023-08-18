@@ -10,7 +10,7 @@
     <script src="..\Scrip\jquery-3.5.1.min.js"></script>
     <script src="..\Scrip\bootstrap.min.js"></script>
     <script src="..\Scrip\Vue.js"></script>
-    
+    <script src="lib/axios.js"></script>
     <style>
       li {
         overflow: hidden;
@@ -46,17 +46,7 @@
        
         methods: {
             handleFetch(){
-                // fetch("http://127.0.0.1:5500/a01-axios&fetch/json/test.json")
-                // .then(res=>{
-                //     console.log(res)
-
-                //     //状态码，响应头,拿不到真正数据
-                //     return res.json()
-                // }).then(res=>{
-                //   console.log(res)
-                // }).catch(err=>{
-                //   console.log(err)
-                // })
+              
                 fetch("http://127.0.0.1:5500/a01-axios&fetch/json/maizuo.json")
                 .then(res=>{
                     //状态码，响应头,拿不到真正数据

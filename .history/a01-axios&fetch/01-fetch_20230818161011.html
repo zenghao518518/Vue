@@ -10,37 +10,19 @@
     <script src="..\Scrip\jquery-3.5.1.min.js"></script>
     <script src="..\Scrip\bootstrap.min.js"></script>
     <script src="..\Scrip\Vue.js"></script>
-    
-    <style>
-      li {
-        overflow: hidden;
-        list-style: none;
-        padding: 10px;
-      }
-      li img {
-        float: left;
-        width: 100px;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <div id="box">
       <button @click="handleFetch">ajax-fetch</button>
-      <ul>
-        <li v-for="data in datalist" :key="data.filmId">
-          <img :src="data.poster" />
-          {{data.name}}
-        </li>
-      </ul>
     </div>
-
 
     <script>
       var vm = new Vue({
         el: "#box",
         data() {
           return {
-            datalist:[]
+         
           };
         },
        
@@ -63,7 +45,6 @@
                     return res.json()
                 }).then(res=>{
                   console.log(res.data.films)
-                  this.datalist = res.data.films
                 }).catch(err=>{
                   console.log(err)
                 })
