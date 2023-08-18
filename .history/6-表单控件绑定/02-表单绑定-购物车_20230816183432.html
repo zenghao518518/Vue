@@ -112,7 +112,6 @@
                console.log(index)
                this.datalist.splice(index,1)
                this.checkList =this.checkList.filter(item=>item.id!==id)
-               //删除后刷新
                this.handleItemChecked()
             },
             handleAllChecked(){

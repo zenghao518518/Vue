@@ -14,10 +14,7 @@
   </head>
   <body>
     <div id="box">
-      <input type="text" @input="handleInput" v-model="mytext"/>
-      <ul>
-        <li v-for="data of datalist" :key="data">{{data}}</li>
-     </ul>
+      <button @click="handleFetch">ajax-fetch</button>
     </div>
 
     <script>
@@ -25,16 +22,13 @@
         el: "#box",
         data() {
           return {
-            mytext:"",
-            datalist: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"],
-            originList: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"]
+         
           };
         },
+       
         methods: {
-            handleInput(){
-                console.log("input",this.mytext)
-                this.datalist= this.originList.filter(item=>item.includes(this.mytext))
-                console.log(this.datalist)
+            handleFetch(){
+                fetch("./json/test.json")
             }
         },
       });

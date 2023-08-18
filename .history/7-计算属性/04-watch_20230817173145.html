@@ -16,7 +16,7 @@
     <div id="box">
       <input type="text" @input="handleInput" v-model="mytext"/>
       <ul>
-        <li v-for="data of datalist" :key="data">{{data}}</li>
+        <li v-for="data in datalist" :key="data">{{data}}</li>
      </ul>
     </div>
 
@@ -30,12 +30,20 @@
             originList: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"]
           };
         },
-        methods: {
-            handleInput(){
-                console.log("input",this.mytext)
-                this.datalist= this.originList.filter(item=>item.includes(this.mytext))
-                console.log(this.datalist)
+        watch:{
+            mytext(newval){
+                console.log("改变了",newval)
+                setTimeout(()=>{
+                    this.datalist= this.originList.filter(item=>item.includes(newval))
+                },1000)
             }
+        },
+        methods: {
+            // handleInput(){
+            //     console.log("input",this.mytext)
+            //     this.datalist= this.originList.filter(item=>item.includes(this.mytext))
+            //     console.log(this.datalist)
+            // }
         },
       });
     </script>

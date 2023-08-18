@@ -14,9 +14,9 @@
   </head>
   <body>
     <div id="box">
-      <input type="text" @input="handleInput" v-model="mytext"/>
+      <input type="text" v-model="mytext"/>
       <ul>
-        <li v-for="data of datalist" :key="data">{{data}}</li>
+        <li v-for="data in test()" :key="data">{{data}}</li>
      </ul>
     </div>
 
@@ -27,15 +27,18 @@
           return {
             mytext:"",
             datalist: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"],
-            originList: ["aaa", "add", "bbb", "bbc", "ccc", "ddd", "eee", "ade"]
+           
           };
         },
+        computed:{
+          test(){
+           return this.datalist.filter(item=>item.includes(this.mytext))
+         }
+        },
         methods: {
-            handleInput(){
-                console.log("input",this.mytext)
-                this.datalist= this.originList.filter(item=>item.includes(this.mytext))
-                console.log(this.datalist)
-            }
+         test(){
+           return this.datalist.filter(item=>item.includes(this.mytext))
+         }
         },
       });
     </script>

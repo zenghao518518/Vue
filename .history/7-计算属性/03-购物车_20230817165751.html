@@ -99,15 +99,25 @@
             ],
           };
         },
-        methods: {
-            sum(){
+        computed:{
+          sum(){
                 //累计计算
                 var total=0
                  this.checkList.forEach(item => {
                     total+=item.price*item.number
                 });
                 return total
-            },
+            }
+        },
+        methods: {
+            // sum(){
+            //     //累计计算
+            //     var total=0
+            //      this.checkList.forEach(item => {
+            //         total+=item.price*item.number
+            //     });
+            //     return total
+            // },
             handleDeleteClick(index,id){
                console.log(index)
                this.datalist.splice(index,1)
