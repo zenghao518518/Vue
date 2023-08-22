@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\..\Css\bootstrap.css" />
+    <script src="..\..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\..\Scrip\bootstrap.min.js"></script>
+    <script src="..\..\Scrip\Vue.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <child v-if="isCreated"></child>
+    </div>
+    <script>
+      Vue.component("child", {
+        data() {
+          return {
+            time: 1000,
+          };
+        },
+        mounted() {
+          //当isCreated=false时，不会被销毁
+          this.id = setInterval(() => {
+            console.log("倒计时");
+            this.time--;
+          }, 1000);
+          window.onresize=()=>{
+            console.log("resize")
+          }
+        },
+        beforeDestroy() {
+          console.log("beforeDestroy", "清除定时器，事件解绑，,..");
+          clearInterval(this.id);
+          window.onresize = null;
+        },
+        destroyed() {},
+        template: `
+        <div>
+            抢购倒计时组件
+            <div>{{time}}</div>
+        </div>`,
+      });
+
+      var vm = new Vue({
+        el: "#box",
+        data() {
+          return {
+            isCreated: true,
+          };
+        },
+      
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

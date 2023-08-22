@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="lib/swiper/js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="lib/swiper/css/swiper-bundle.min.css" />
+  </head>
+  <style>
+    .zenghao {
+      height: 600px;
+    }
+  </style>
+  <body>
+    <header>导航</header>
+    <div class="swiper zenghao">
+      <div class="swiper-wrapper">
+     
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+
+      <footer>底部内容</footer>
+      <script>
+        //模拟Ajax取数据
+        setTimeout(() => {
+            var list =["aaaa","bbbb","cccc"]
+            var newlist=list.map(item=>`<div class="swiper-slide">${item}</div>`)
+            console.log(newlist)
+            var owrapper = document.querySelector(".swiper-wrapper")
+            owrapper.innerHTML=newlist.join("")
+            // Dom元素创建完才能轮播
+            init()
+          
+        }, 2000);
+
+
+
+       function init(){
+        new Swiper(".zenghao", {
+          //   direction: "vertical",
+          pagination: {
+            el: ".swiper-pagination",
+          },
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          // 如果需要前进后退按钮
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+        }
+      </script>
+    </div>
+  </body>
+</html>

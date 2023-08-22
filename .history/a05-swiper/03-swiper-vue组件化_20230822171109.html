@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css" />
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+
+    <script src="lib/swiper/js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="lib/swiper/css/swiper-bundle.min.css" />
+  </head>
+  <style>
+    .zenghao {
+      height: 600px;
+    }
+  </style>
+  <body>
+    <div id="box">
+      <swiper></swiper>
+    </div>
+    <script>
+      Vue.component("swiper", {
+        data() {
+          return {
+            time: 1000,
+          };
+        },
+        mounted() {
+            new Swiper(".zenghao", {
+              //   direction: "vertical",
+              pagination: {
+                el: ".swiper-pagination",
+              },
+              loop: true,
+              autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+              },
+              // 如果需要前进后退按钮
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+            });
+        },
+        beforeDestroy() {
+          console.log("beforeDestroy", "清除定时器，事件解绑，,..");
+        },
+        destroyed() {},
+        template: `
+        <div class="swiper zenghao">
+           <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+           </div>
+        
+        <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>`,
+      });
+
+      var vm = new Vue({
+        el: "#box",
+        data() {
+          return {};
+        },
+
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

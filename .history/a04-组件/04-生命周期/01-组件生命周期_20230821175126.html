@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\..\Css\bootstrap.css" />
+    <script src="..\..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\..\Scrip\bootstrap.min.js"></script>
+    <script src="..\..\Scrip\Vue.js"></script>
+  </head>
+  <body>
+    <div id="box">{{globename}}</div>
+      <ul>
+        <li v-for="data in datalist" :key="data"></li>
+        {{data}}
+      </ul>
+    <script>
+      var vm = new Vue({
+        el: "#box",
+        data() {
+          return {
+            myname: "zenghao", //this下被拦截的状态
+            datalist:[]
+          };
+        },
+
+        beforeCreate() {
+          console.log("beforeCreate", this.myname);
+        },
+
+        created() {
+          console.log(
+            "Created",
+            "初始化状态或者挂载到当前实例的一些属性",
+            this.myname
+          );
+          this.globename = "Created添加的属性"; //this下可被访问的属性
+        },
+        beforeMount() {
+          //模板解析之前最后一次修改模板节点。
+          console.log("beforeMount", document.getElementById("box").innerHTML);
+        },
+        mounted() {
+          console.log("mounted", document.getElementById("box").innerHTML);
+          //依赖于dom创建之后，·才进行初始化工作的插件(轮播插件）
+          //订阅·bus.$on
+          //模拟Ajax
+          setTimeout(() => {
+            this.datalist=["1111","2222","3333"];
+            console.log("111,222,333");
+          }, 2000);
+        },
+
+        beforeUpdate() {
+          console.log(
+            "beforeUpdate",
+            "更新之前,记录老的dom某些状态,比如滚动条位置记录。"
+          );
+        },
+        updated() {
+          console.log(
+            "updated",
+            "更新完成,获取更新的后dom,才进行swiper工作的插件"
+          );
+        },
+        watch:{
+            datalist:{
+                handler(){
+                    console.log(this.datalist)
+                },
+                //深层监听
+                deep:true
+            }
+        },
+        methods: {},
+        
+      });
+    </script>
+  </body>
+</html>

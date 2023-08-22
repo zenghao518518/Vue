@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\..\Css\bootstrap.css" />
+    <script src="..\..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\..\Scrip\bootstrap.min.js"></script>
+    <script src="..\..\Scrip\Vue.js"></script>
+    
+  </head>
+  <body>
+    <div id="box">
+      {{globename}}
+    </div>
+
+
+    <script>
+      var vm = new Vue({
+        el: "#box",
+        data() {
+          return {
+             myname:"zenghao"//this下被拦截的状态
+          };
+        },
+
+        beforeCreate() {
+            console.log("beforeCreate",this.myname)
+        },
+
+        created() {
+             console.log("Created","初始化状态或者挂载到当前实例的一些属性",this.myname)
+             this.globename="Created添加的属性"//this下可被访问的属性
+        },
+       
+       
+       
+        methods: {
+           
+         
+           
+        },
+      });
+    </script>
+  </body>
+</html>

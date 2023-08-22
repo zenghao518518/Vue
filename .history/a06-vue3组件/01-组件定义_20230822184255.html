@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="..\Css\bootstrap.css">
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="../Scrip/Vue.next.js"></script>
+</head>
+<body>
+      <div id="box">
+        
+         {{myname}}
+        
+      </div>
+      
+
+      <script>
+        var obj ={
+            data() {
+                return{
+                    myname:"zenghao",
+                    mytext:"",
+                    classobj: {
+                        aa: true,
+                        bb: true,
+                        cc: false
+                    }
+                }
+            },
+            methods: {
+                handleAdd(){
+                  console.log("add",this.mytext)
+                  this.classobj.dd = true //后期动态增加属性
+                }
+            },
+
+        }
+           
+        Vue.createApp(obj)
+        .component("navbar",{
+            props:["myname"],
+            template:`
+            <div>
+              navbar
+              <slot></slot>    
+            </div>
+            `
+
+        }).mount("#box")
+      </script>
+</body>
+</html>

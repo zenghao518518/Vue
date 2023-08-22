@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css" />
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+
+    <script src="lib/swiper/js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="lib/swiper/css/swiper-bundle.min.css" />
+  </head>
+  <style>
+    .zenghao {
+      height: 600px;
+    }
+  </style>
+  <body>
+    <div id="box">
+      <!-- <swiper v-if="datalist.length">   -->
+      <swiper :key="datalist.length">
+         <swiper-item  v-for="data in datalist" ::key="data">
+            <img :src="data">
+         </swiper-item>
+        
+      </swiper>
+    </div>
+    <script>
+      Vue.component("swiperItem",{
+        template: 
+        `
+            <div class="swiper-slide"> 
+                <slot></slot>
+            </div>
+           
+        `
+      }); 
+      Vue.component("swiper", {
+        data() {
+          return {
+            time: 1000,
+          };
+        },
+        mounted() {
+            new Swiper(".zenghao", {
+              //   direction: "vertical",
+              pagination: {
+                el: ".swiper-pagination",
+              },
+              loop: true,
+              autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+              },
+              // 如果需要前进后退按钮
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+            });
+        },
+        beforeDestroy() {
+          console.log("beforeDestroy", "清除定时器，事件解绑，,..");
+        },
+        destroyed() {},
+        template: `
+        <div class="swiper zenghao">
+           <div class="swiper-wrapper">
+              <slot></slot>
+           </div>
+        
+        <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>`,
+      });
+
+      var vm = new Vue({
+        el: "#box",
+        data() {
+          return {
+
+            datalist:[]
+
+          };
+        },
+        mounted() {
+             //模拟Ajax
+             setTimeout(() => {
+              this.datalist = [
+                "https://static.maizuo.com/pc/v5/usr/movie/e856bdc65507b99800f22e47801fa781.jpg",
+                "https://static.maizuo.com/pc/v5/usr/movie/47aa5a3ad2ebff403d073288e4365694.jpg",
+                "https://static.maizuo.com/pc/v5/usr/movie/8b0755547313706883acc771bda7709d.jpg",
+              ];
+
+            }, 2000);
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
