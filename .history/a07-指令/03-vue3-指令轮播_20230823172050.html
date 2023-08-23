@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="..\Css\bootstrap.css" />
+  <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+  <script src="..\Scrip\bootstrap.min.js"></script>
+  <!-- <script src="..\Scrip\Vue.js"></script> -->
+  <script src="../Scrip/Vue.next.js"></script>
+
+  <script src="lib/swiper/js/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="lib/swiper/css/swiper-bundle.min.css" />
+</head>
+<style>
+  .zenghao {
+    height: 600px;
+  }
+</style>
+
+<body>
+  <div id="box">
+    <header>导航</header>
+    <div class="swiper zenghao">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="(data,index) in datalist" ::key="data" v-swipe="{
+          index:index,
+          length:datalist.length
+         }">
+          <img :src="data">
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+    </div>
+    <footer>底部内容</footer>
+  </div>
+  <script>
+
+
+    var obj = {
+      el: "#box",
+      data() {
+        return {
+          datalist: [],
+        };
+      },
+
+      mounted() {
+        console.log("mounted", document.getElementById("box").innerHTML);
+        //依赖于dom创建之后，·才进行初始化工作的插件(轮播插件）
+
+        //模拟Ajax
+        setTimeout(() => {
+          this.datalist = [
+            "https://static.maizuo.com/pc/v5/usr/movie/e856bdc65507b99800f22e47801fa781.jpg",
+            "https://static.maizuo.com/pc/v5/usr/movie/47aa5a3ad2ebff403d073288e4365694.jpg",
+            "https://static.maizuo.com/pc/v5/usr/movie/8b0755547313706883acc771bda7709d.jpg",
+          ];
+
+        }, 2000);
+      }
+
+    }
+
+    var app = Vue.createApp(obj)
+
+    app.directive("swipe", {
+      //只有第一次起作用
+      inserted(el, binding) {
+        let { index, length } = binding.value
+        console.log("inserted", el)
+        //dom元素都加载完，即最后一条index=length-1
+        if (index === length - 1) {
+          new Swiper(".zenghao", {
+            //   direction: "vertical",
+            pagination: {
+              el: ".swiper-pagination",
+            },
+            loop: true,
+            autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+            },
+            // 如果需要前进后退按钮
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        }
+      }
+
+    })
+
+    app.mount("#box")
+
+
+  </script>
+  </div>
+</body>
+
+</html>

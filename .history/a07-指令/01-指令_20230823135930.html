@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css">
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+    <style>
+     
+    </style>
+</head>
+<body>
+
+    <div id="box">
+      <div v-hello>1111111111111111</div>
+    </div>
+
+
+    <script>
+     Vue.directive("hello",{
+       inserted(){
+        console.log("inserted")
+       }
+     })
+
+
+     var vm= new Vue({
+        el:"#box",
+        data() {
+            return {
+              
+            }
+        },
+        methods: {
+        
+        },
+     })
+   
+    </script>
+</body>
+</html>

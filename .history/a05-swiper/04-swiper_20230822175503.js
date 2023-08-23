@@ -1,4 +1,14 @@
-Vue.component("swiper", {
+Vue.component("swiperItem",{
+    template: 
+    `
+        <div class="swiper-slide"> 
+            <slot></slot>
+        </div>
+       
+    `
+  })
+  
+  Vue.component("swiper", {
     data() {
       return {
         time: 1000,

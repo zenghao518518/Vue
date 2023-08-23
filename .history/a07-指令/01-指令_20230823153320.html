@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css">
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+    <style>
+     
+    </style>
+</head>
+<body>
+
+    <div id="box">
+      <div v-hello="'yellow'">1111111111111111</div>
+      <div v-hello="'red'">1111111111111111</div>
+      <div v-hello="whichcolor">1111111111111111</div>
+    </div>
+
+
+    <script>
+     Vue.directive("hello",{
+       //只有第一次起作用
+       inserted(el,binding){
+        console.log("inserted",el)
+        el.style.background=binding.value
+       },
+
+       update(el,binding){
+        el.style.background=binding.value
+       }
+     })
+
+
+     var vm= new Vue({
+        el:"#box",
+        data() {
+            return {
+              whichcolor:"blue"
+            }
+        },
+        methods: {
+        
+        },
+     })
+   
+    </script>
+</body>
+</html>

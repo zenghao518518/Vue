@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="..\Css\bootstrap.css">
+    <script src="..\Scrip\jquery-3.5.1.min.js"></script>
+    <script src="..\Scrip\bootstrap.min.js"></script>
+    <script src="..\Scrip\Vue.js"></script>
+    <style>
+     
+    </style>
+</head>
+<body>
+
+    <div id="box">
+     
+    </div>
+
+
+    <script>
+     var vm= new Vue({
+        el:"#box",
+        data() {
+            return {
+                //vue2 解决方案
+                //Vue.set(vm.classobj,"dd",true)
+                //vm.classobj.cc=true 起作用，vm.classobj.dd=true不起作用,但vm.classobj.cc改变状态，dd才会改变状态
+
+               classobj:{
+                aa:true,
+                bb:true,
+                cc:false
+               },
+               //vm.classarr.push("cc"),vm.classarr.push("dd")都起作用
+              classarr:["aa","bb"],
+              //Vue.set(vm.styleobj,"fontSize","40px") 能起作用
+              //vm.styleobj.fontSize="40px"无法改变，但vm.styleobj.backgroundColor="green"可触发改变
+              styleobj:{
+                backgroundColor:'red'
+               },
+               //vm.stylearr.push({fontSize:"40px"})
+              stylearr:[{backgroundColor:'red'}]
+            }
+        },
+        methods: {
+        
+        },
+     })
+   
+    </script>
+</body>
+</html>
