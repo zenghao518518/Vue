@@ -8,7 +8,6 @@
         </ul>
     </div>
 </template>
-
 <style lang="scss">
 $width:300px;
   ul{

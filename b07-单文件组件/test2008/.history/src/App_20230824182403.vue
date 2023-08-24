@@ -52,7 +52,7 @@ export default {
 
 </script>
 <!-- scss经典的嵌套写法 -->
-<style lang="scss" scoped>
+<style lang="scss">
 $width:300px;
   ul{
     li{
