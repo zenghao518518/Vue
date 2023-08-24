@@ -1,0 +1,20 @@
+$ npm start
+$ npm run serve
+
+针对lint错误，save自动修复
+setting.json
+ //lint save后，自动修复
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+
+在项目目录中找到 vue.config.js文件
+module.exports = defineConfig({
+  transpileDependencies: true,
+  lintOnSave: false// 暂时关闭代码检测
+})
+
+针对驼峰命名报错处理
+Component name “xxxxx“ should always be multi-word.eslintvue
+在项目目录中找到 .eslintrc.js文件，rules中添加一行
+"vue/multi-word-component-names":"off",

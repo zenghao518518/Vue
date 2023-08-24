@@ -10,19 +10,12 @@
                 <button @click="handleDel(index)">del</button>
             </li>
         </ul>
-         <navbar myname="home" :myright=false>
-          <div>34343434</div>
-        </navbar>
+
         <div v-show="!datalist.length">代办事项空空如也</div>
   </div>
 </template>
 <script>
 // ES6 导出规范
-import navbar from './components/Navbar.vue'
-import Vue from 'vue'
-// 全局组件注册
-Vue.component('navbar', navbar)
-
 export default {
   data () {
     return {
@@ -30,9 +23,6 @@ export default {
       datalist: ['1111111', '22222222', '33333333']
     }
   },
-  // components: {
-  //   navbar// 局部注册法，同名可省略
-  // },
   methods: {
     handleAdd () {
       console.log('handleAdd')
@@ -50,7 +40,6 @@ export default {
 </script>
 <!-- scss经典的嵌套写法 -->
 <style lang="scss">
-$width:300px;
   ul{
     li{
       background:red;

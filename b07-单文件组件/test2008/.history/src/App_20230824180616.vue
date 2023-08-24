@@ -10,9 +10,7 @@
                 <button @click="handleDel(index)">del</button>
             </li>
         </ul>
-         <navbar myname="home" :myright=false>
-          <div>34343434</div>
-        </navbar>
+         <navbar myname="home" myright="false"></navbar>
         <div v-show="!datalist.length">代办事项空空如也</div>
   </div>
 </template>

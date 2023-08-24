@@ -11,9 +11,7 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-const obj = {
-  name: 'zenghao',
-  age: 100
+var obj={
+  name:"zenghao",
+  age:100
 }
-
-console.log(obj)

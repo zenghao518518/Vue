@@ -1,2 +1,0 @@
-$ cd test2008
-$ npm run serve

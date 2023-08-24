@@ -16,4 +16,4 @@ const obj = {
   age: 100
 }
 
-console.log(obj)
+// console.log(obj)

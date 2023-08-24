@@ -10,9 +10,7 @@
                 <button @click="handleDel(index)">del</button>
             </li>
         </ul>
-         <navbar myname="home" :myright=false>
-          <div>34343434</div>
-        </navbar>
+         <navbar myname="home"></navbar>
         <div v-show="!datalist.length">代办事项空空如也</div>
   </div>
 </template>
@@ -21,7 +19,7 @@
 import navbar from './components/Navbar.vue'
 import Vue from 'vue'
 // 全局组件注册
-Vue.component('navbar', navbar)
+// Vue.component('navbar', navbar)
 
 export default {
   data () {
@@ -30,9 +28,9 @@ export default {
       datalist: ['1111111', '22222222', '33333333']
     }
   },
-  // components: {
-  //   navbar// 局部注册法，同名可省略
-  // },
+  components: {
+    navbar// 局部注册法，同名可省略
+  },
   methods: {
     handleAdd () {
       console.log('handleAdd')
