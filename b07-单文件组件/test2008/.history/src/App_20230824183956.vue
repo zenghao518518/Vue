@@ -10,7 +10,7 @@
                 <button @click="handleDel(index)">del</button>
             </li>
         </ul>
-         <navbar myname="home" :myright=false @event="handleEvent">
+         <navbar myname="home" :myright=false>
           <div>34343434</div>
         </navbar>
         <sidebar v-show="isShow"></sidebar>
@@ -29,8 +29,7 @@ export default {
   data () {
     return {
       mytext: 'zenghao',
-      datalist: ['1111111', '22222222', '33333333'],
-      isShow: true
+      datalist: ['1111111', '22222222', '33333333']
     }
   },
   components: {
@@ -47,11 +46,7 @@ export default {
     handleDel (index) {
       console.log('del', index)
       this.datalist.splice(index, 1)
-    },
-    handleEvent () {
-      this.isShow = !this.isShow
     }
-
   }
 }
 

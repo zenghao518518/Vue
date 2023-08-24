@@ -17,11 +17,6 @@ export default {
       type: Boolean,
       default: true
     }
-  },
-  methods: {
-    handleLeft () {
-      this.$emit('event')
-    }
   }
 }
 </script>

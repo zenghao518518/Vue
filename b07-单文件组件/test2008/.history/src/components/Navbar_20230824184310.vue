@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     handleLeft () {
-      this.$emit('event')
+
     }
   }
 }

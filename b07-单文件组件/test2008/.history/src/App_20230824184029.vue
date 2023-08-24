@@ -10,7 +10,7 @@
                 <button @click="handleDel(index)">del</button>
             </li>
         </ul>
-         <navbar myname="home" :myright=false @event="handleEvent">
+         <navbar myname="home" :myright=false>
           <div>34343434</div>
         </navbar>
         <sidebar v-show="isShow"></sidebar>
@@ -47,11 +47,7 @@ export default {
     handleDel (index) {
       console.log('del', index)
       this.datalist.splice(index, 1)
-    },
-    handleEvent () {
-      this.isShow = !this.isShow
     }
-
   }
 }
 

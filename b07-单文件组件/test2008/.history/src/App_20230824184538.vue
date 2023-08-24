@@ -49,7 +49,7 @@ export default {
       this.datalist.splice(index, 1)
     },
     handleEvent () {
-      this.isShow = !this.isShow
+
     }
 
   }

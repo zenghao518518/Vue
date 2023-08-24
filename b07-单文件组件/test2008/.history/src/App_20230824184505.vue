@@ -47,11 +47,7 @@ export default {
     handleDel (index) {
       console.log('del', index)
       this.datalist.splice(index, 1)
-    },
-    handleEvent () {
-      this.isShow = !this.isShow
     }
-
   }
 }
 
