@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <router-view></router-view>
     <!-- 双向绑定了一个输入框的Value -->
     <input type="text" v-model="mytext" />
     {{ mytext }}
@@ -22,7 +21,7 @@
 <script>
 // ES6 导出规范
 // @别名===> src的绝对路径
-// import navbar from '@/components/Navbar.vue'
+
 import navbar from './components/Navbar.vue'
 import sidebar from './components/Sidebar.vue'
 import Vue from 'vue'

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <router-view></router-view>
     <!-- 双向绑定了一个输入框的Value -->
     <input type="text" v-model="mytext" />
     {{ mytext }}
