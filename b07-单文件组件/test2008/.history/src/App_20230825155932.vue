@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <!-- 双向绑定了一个输入框的Value -->
-    <input type="text" v-model="mytext" />
-    {{ mytext }}
-    <button @click="handleAdd()">add</button>
-    <ul v-show="datalist.length">
-      <li v-for="(data, index) in datalist" :key="data">
-        {{ data }}
-        <button @click="handleDel(index)">del</button>
-      </li>
-    </ul>
-    <navbar myname="home" :myright="false" @event="handleEvent">
-      <div>34343434</div>
-    </navbar>
-    <sidebar v-show="isShow"></sidebar>
-    <div v-show="!datalist.length">代办事项空空如也</div>
-    <div v-hello>11111111</div>
+    <input type="text" v-model="mytext">
+        {{mytext}}
+        <button @click="handleAdd()">add</button>
+        <ul  v-show="datalist.length">
+            <li v-for="(data,index) in datalist" :key="data" >
+                {{data}}
+                <button @click="handleDel(index)">del</button>
+            </li>
+        </ul>
+         <navbar myname="home" :myright=false @event="handleEvent">
+          <div>34343434</div>
+        </navbar>
+        <sidebar v-show="isShow"></sidebar>
+        <div v-show="!datalist.length">代办事项空空如也</div>
+        <div v-hello>11111111</div>
   </div>
 </template>
 <script>
@@ -23,7 +23,6 @@
 import navbar from './components/Navbar.vue'
 import sidebar from './components/Sidebar.vue'
 import Vue from 'vue'
-import axios from 'axios'
 // 全局组件注册
 Vue.component('navbar', navbar)
 Vue.directive('hello', {
@@ -39,11 +38,6 @@ export default {
       datalist: ['1111111', '22222222', '33333333'],
       isShow: true
     }
-  },
-  mounted () {
-    // 反向代理
-    axios.get('/zenghao/ajax/movieOnInfoList?token=&optimus_uuid=74B5F0A032A711EB82DD6B9282E93C676D27D7B9731D4E608D7612C3E708C120&optimus_risk_level=71&optimus_code=10')
-      .then(res => { console.log(res.data) })
   },
   components: {
     // navbar// 局部注册法，同名可省略
@@ -66,15 +60,16 @@ export default {
 
   }
 }
+
 </script>
 <!-- scss经典的嵌套写法 -->
 <style lang="scss" scoped>
-$width: 300px;
-ul {
-  li {
-    background: red;
+$width:300px;
+  ul{
+    li{
+      background:red;
+    }
   }
-}
 </style>
 
 <!-- <template>

@@ -9,11 +9,10 @@ module.exports = defineConfig({
         target: 'https://m.maoyan.com',
         changeOrigin: true,
         pathRewrite: {
-          '/zenghao': ''
+          zenghao: ''
         }
       }
     }
-
   }
 })
 // 配置反向代理

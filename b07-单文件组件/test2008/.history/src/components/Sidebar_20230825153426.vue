@@ -18,21 +18,16 @@ export default {
   },
   mounted () {
     console.log('mounted')
-    axios.get('/test.json')
+    fetch('/test.json')
       .then(res => {
-        console.log(res.data.data.films)
-        this.datalist = res.data.data.films
+        // 状态码，响应头,拿不到真正数据
+        return res.json()
+      }).then(res => {
+        console.log(res.data.films)
+        this.datalist = res.data.films
+      }).catch(err => {
+        console.log(err)
       })
-    // fetch('/test.json')
-    //   .then(res => {
-    //     // 状态码，响应头,拿不到真正数据
-    //     return res.json()
-    //   }).then(res => {
-    //     console.log(res.data.films)
-    //     this.datalist = res.data.films
-    //   }).catch(err => {
-    //     console.log(err)
-    //   })
   }
 }
 </script>

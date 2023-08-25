@@ -42,7 +42,7 @@ export default {
   },
   mounted () {
     // 反向代理
-    axios.get('/zenghao/ajax/movieOnInfoList?token=&optimus_uuid=74B5F0A032A711EB82DD6B9282E93C676D27D7B9731D4E608D7612C3E708C120&optimus_risk_level=71&optimus_code=10')
+    axios.get('/zenghhao/ajax/movieOnInfoList?token=&optimus_uuid=74B5F0A032A711EB82DD6B9282E93C676D27D7B9731D4E608D7612C3E708C120&optimus_risk_level=71&optimus_code=10')
       .then(res => { console.log(res.data) })
   },
   components: {

@@ -18,7 +18,7 @@ export default {
       default: true
     }
   },
-  methods: {
+  methods() {
     handleLeft () {
       this.$emit('event')
     }

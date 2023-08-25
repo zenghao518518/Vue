@@ -7,13 +7,9 @@ module.exports = defineConfig({
     proxy: {
       '/ajax': {
         target: 'https://m.maoyan.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '/zenghao': ''
-        }
+        changeOrigin: true
       }
     }
-
   }
 })
 // 配置反向代理

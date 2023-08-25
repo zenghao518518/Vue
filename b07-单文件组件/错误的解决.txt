@@ -18,3 +18,25 @@ module.exports = defineConfig({
 Component name “xxxxx“ should always be multi-word.eslintvue
 在项目目录中找到 .eslintrc.js文件，rules中添加一行
 "vue/multi-word-component-names":"off",
+
+安装anxios 报错
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolvenpm ERR!
+npm ERR! while resolving: @vue/eslint-config-standard@6.1.0npm ERR! Found: eslint-plugin-vue@8.7.1
+。。。。。
+
+为什么会出现上述错误：
+是因为npm版本过高的原因，高于7之后要求会更严格；
+npm -V可以查看npm的版本
+--legacy-peer-deps 标志  是在v7中引入的,目的是绕过peerDependency自动安装;它告诉 NPM 忽略项目中引入的各个modules之间的相同modules但不同版本的问题并继续安装。
+
+npm i --save axios --legacy-peer-deps
+
+
+
+
+
+https://m.maoyan.com/ajax/movieOnInfoList?token=&optimus_uuid=74B5F0A032A711EB82DD6B9282E93C676D27D7B9731D4E608D7612C3E708C120&optimus_risk_level=71&optimus_code=10
+
+
+

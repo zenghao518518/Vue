@@ -22,6 +22,9 @@ export default {
     handleLeft () {
       this.$emit('event')
     }
+  },
+  mounted: {
+
   }
 
 }
