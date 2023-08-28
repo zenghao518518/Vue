@@ -12,25 +12,13 @@
       </li>
       <!-- 以前的路由转换监听 -->
       <!-- window.onhashchange=()=>{console.log("1111111",location.hash)} -->
+
     </ul>
-    <h1></h1>
-    <ul>
-
-        <!-- 多个高亮的解决方案，active-class -->
-        <!-- tag="li" 可以免除li 标签 -->
-        <router-link to="/films" active-class="zenghao" tag="li">电影</router-link>
-
-        <router-link to="/films" custom v-slot="{navigate,isActive}">
-            <li @click="navigate" :class="isActive?'zenghao':''">电影--{{ isActive }}</li>
-        </router-link>
-
-      <li>
-        <router-link to="/cinemas" active-class="zenghao">影院</router-link>
+<ul>
+  <li>
+        <rooter-link to="/film">电影</rooter-link>
       </li>
-      <li>
-        <router-link to="/center" active-class="zenghao">我的</router-link>
-      </li>
-    </ul>
+</ul>
     <router-view></router-view>
 
     <!-- 双向绑定了一个输入框的Value -->
@@ -77,13 +65,8 @@ export default {
   },
   mounted () {
     // 反向代理
-    axios
-      .get(
-        '/zenghao/ajax/movieOnInfoList?token=&optimus_uuid=74B5F0A032A711EB82DD6B9282E93C676D27D7B9731D4E608D7612C3E708C120&optimus_risk_level=71&optimus_code=10'
-      )
-      .then((res) => {
-        console.log(res.data)
-      })
+    axios.get('/zenghao/ajax/movieOnInfoList?token=&optimus_uuid=74B5F0A032A711EB82DD6B9282E93C676D27D7B9731D4E608D7612C3E708C120&optimus_risk_level=71&optimus_code=10')
+      .then(res => { console.log(res.data) })
   },
   components: {
     // navbar// 局部注册法，同名可省略
@@ -103,6 +86,7 @@ export default {
     handleEvent () {
       this.isShow = !this.isShow
     }
+
   }
 }
 </script>
@@ -113,11 +97,6 @@ ul {
   li {
     background: red;
   }
-}
-// 路由高亮的显示
-// .router-link-active{
-.zenghao{
-  color:blue;
 }
 </style>
 

@@ -21,7 +21,7 @@
         <router-link to="/films" active-class="zenghao" tag="li">电影</router-link>
 
         <router-link to="/films" custom v-slot="{navigate,isActive}">
-            <li @click="navigate" :class="isActive?'zenghao':''">电影--{{ isActive }}</li>
+            <li @click="navigate">电影--{{ isActive }}</li>
         </router-link>
 
       <li>

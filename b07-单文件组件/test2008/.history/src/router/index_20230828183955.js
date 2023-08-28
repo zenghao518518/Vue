@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 import Films from '@/views/Films.vue'
 import Cinemas from '@/views/Cinemas.vue'
 import Center from '@/views/Center.vue'
-import Nowplaying from '@/views/films/Nowplaying.vue'
-import Comingsoon from '@/views/films/Comingsoon.vue'
+
 Vue.use(VueRouter)
 
 const routes = [

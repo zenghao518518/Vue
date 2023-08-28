@@ -18,11 +18,7 @@
 
         <!-- 多个高亮的解决方案，active-class -->
         <!-- tag="li" 可以免除li 标签 -->
-        <router-link to="/films" active-class="zenghao" tag="li">电影</router-link>
-
-        <router-link to="/films" custom v-slot="{navigate,isActive}">
-            <li @click="navigate" :class="isActive?'zenghao':''">电影--{{ isActive }}</li>
-        </router-link>
+        <router-link to="/films" active-class="zenghao" tag="checkbox">电影</router-link>
 
       <li>
         <router-link to="/cinemas" active-class="zenghao">影院</router-link>

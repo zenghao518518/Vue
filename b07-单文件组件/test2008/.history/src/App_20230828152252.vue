@@ -15,20 +15,14 @@
     </ul>
     <h1></h1>
     <ul>
-
-        <!-- 多个高亮的解决方案，active-class -->
-        <!-- tag="li" 可以免除li 标签 -->
-        <router-link to="/films" active-class="zenghao" tag="li">电影</router-link>
-
-        <router-link to="/films" custom v-slot="{navigate,isActive}">
-            <li @click="navigate" :class="isActive?'zenghao':''">电影--{{ isActive }}</li>
-        </router-link>
-
       <li>
-        <router-link to="/cinemas" active-class="zenghao">影院</router-link>
+        <router-link to="/films">电影</router-link>
       </li>
       <li>
-        <router-link to="/center" active-class="zenghao">我的</router-link>
+        <router-link to="/cinemas">影院</router-link>
+      </li>
+      <li>
+        <router-link to="/center">我的</router-link>
       </li>
     </ul>
     <router-view></router-view>
@@ -114,9 +108,7 @@ ul {
     background: red;
   }
 }
-// 路由高亮的显示
-// .router-link-active{
-.zenghao{
+.router-link-active{
   color:blue;
 }
 </style>
