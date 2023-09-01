@@ -8,8 +8,6 @@ import Comingsoon from '@/views/films/Comingsoon.vue'
 Vue.use(VueRouter)
 // fafw
 
-let zen
-
 const routes = [
   {
     path: '/films',
